@@ -1,9 +1,7 @@
-# รับค่าตัวเลขจากผู้ใช้ (รองรับทศนิยม) และแปลงเป็น float
 num = float(input("Give me a number: "))
 
-# ตรวจสอบว่าค่าที่รับมาเป็นจำนวนเต็มหรือทศนิยม
-# โดยเปรียบเทียบค่าที่แปลงเป็น int กับค่าจริง ถ้าเท่ากันแสดงว่าไม่มีทศนิยม (เป็นจำนวนเต็ม)
 if int(num) == num:
-    print("This number is an integer")  # แสดงผลว่าเป็นจำนวนเต็ม
+    print("This number is an integer")  
 else:
-    print("This number is a decimal")   # แสดงผลว่าเป็นจำนวนทศนิยม
+    print("This number is a decimal")  
+
