@@ -1,10 +1,10 @@
 import sys
 
-def downcase_it(text):
-    return text.lower()
+def downcase_it(s):
+    return s.lower()
 
-if len(sys.argv) == 1:
-    print("none")
+if len(sys.argv) > 1:
+   for arg in sys.argv[1:]:
+       print(downcase_it(arg))
 else:
-    for arg in sys.argv[1:]:
-        print(downcase_it(arg))
+    print("none")

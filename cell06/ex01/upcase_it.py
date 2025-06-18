@@ -1,4 +1,4 @@
-def upcase_it(text):
-    return text.upper()
+def upcase_it(s):
+    return s.upper()
 
 print(upcase_it("hello"))
