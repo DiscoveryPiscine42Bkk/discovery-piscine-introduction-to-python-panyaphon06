@@ -1,6 +1,7 @@
 def checkmate(board: str):
     board = board.strip().split('\n')
-    size = len(board)
+    size = len(board)  #เอาข้อความกระดานที่รับมา ตัดช่องว่าง + แยกบรรทัดเก็บไว้ในรูปแบบ list (board)เช่น '....\n.K..\n....\n.R..' → ['....', '.K..', '....', '.R..']
+                        #size คือขนาดกระดาน เช่น ถ้ามี 4 แถว size = 4
 
     # ตรวจสอบว่าเป็นกระดานสี่เหลี่ยม
     for row in board:

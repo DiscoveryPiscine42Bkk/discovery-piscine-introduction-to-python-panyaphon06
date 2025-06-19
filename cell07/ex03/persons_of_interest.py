@@ -1,10 +1,10 @@
 def famous_births (figures):
 
-    sorted_figures = sorted(figures, values(), key=lambda person: int (person["date_of_birth"]))
+    sorted_figures = sorted(figures.values(), key=lambda person: int (person["date_of_birth"]))
+
 
     for person in sorted_figures:
-
-        print (f'(person["name"]) is great scientist born in {person["date_of_birth"]}.')
+        print (f'{person["name"]} is great scientist born in {person["date_of_birth"]}.')
 
 scientists = {
 
