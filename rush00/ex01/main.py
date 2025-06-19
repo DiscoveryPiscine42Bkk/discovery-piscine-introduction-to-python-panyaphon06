@@ -4,7 +4,7 @@ def checkmate(board: str):
     board = board.replace('\r', '').strip().split('\n')
     size = len(board)
 
-    if any(len(row) != size for row in board) or size == 0:
+    if size == 0 or any(len(row) != size for row in board):
         print("Error")
         return
 
@@ -23,7 +23,7 @@ def checkmate(board: str):
         return 0 <= x < size and 0 <= y < size
 
     def is_pawn_attacking():
-        for dx, dy in [(-1, -1), (-1, 1)]:  # Pawn attacks upward diagonals
+        for dx, dy in [(1, -1), (1, 1)]:  # <<< แก้ตรงนี้
             nx, ny = king_x + dx, king_y + dy
             if in_bounds(nx, ny) and board[nx][ny] == 'P':
                 return True
@@ -57,19 +57,11 @@ def checkmate(board: str):
                     break
         return False
 
-    def is_knight_attacking():
-        for dx, dy in [(-2, -1), (-1, -2), (1, -2), (2, -1),
-                       (2, 1), (1, 2), (-1, 2), (-2, 1)]:
-            nx, ny = king_x + dx, king_y + dy
-            if in_bounds(nx, ny) and board[nx][ny] == 'N':
-                return True
-        return False
-
-    if (is_pawn_attacking() or is_bishop_attacking() or
-        is_rook_attacking() or is_knight_attacking()):
+    if is_pawn_attacking() or is_bishop_attacking() or is_rook_attacking():
         print("Success")
     else:
         print("Fail")
+
 
 def main():
     if len(sys.argv) < 2:
@@ -79,12 +71,12 @@ def main():
     for filename in sys.argv[1:]:
         try:
             with open(filename, 'r') as f:
-                board_data = f.read()
-                if not board_data.strip():
+                board = f.read()
+                if not board.strip():
                     print("Error")
                     continue
-                checkmate(board_data)
-        except Exception:
+                checkmate(board)
+        except:
             print("Error")
 
 if __name__ == "__main__":
